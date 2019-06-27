@@ -10,11 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var imageoutlet: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        imageoutlet.isUserInteractionEnabled = true
+        let tapgesture1 = UITapGestureRecognizer(target: self, action: #selector(tapgesture))
+        imageoutlet.addGestureRecognizer(tapgesture1)
+        
     }
 
+   @objc func tapgesture(){
+        if imageoutlet.image == UIImage(named: "ironman"){
+            imageoutlet.image = UIImage(named: "thor")
+        }
+        else {
+            imageoutlet.image = UIImage(named: "ironman")
+        }
+    }
 
 }
 
